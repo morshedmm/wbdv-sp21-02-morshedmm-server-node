@@ -1,6 +1,8 @@
 
 const express = require('express')
 const app = express()
+//const bodyParser = require('body-parser')
+//app.use(bodyParser.json())
 
 const mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost:27017/whiteboard',
@@ -30,6 +32,11 @@ demos(app);
 
 // const quizzesController = require("./controllers/quizzes-controller")
 // quizzesController(app)
+
+
+var bodyParser = require('body-parser')
+app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.json())
 
 require("./controllers/quizzes-controller")(app)
 require("./controllers/question-controller")(app)

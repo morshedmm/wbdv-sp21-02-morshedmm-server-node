@@ -2,8 +2,10 @@ const quizAttemptsModel = require('../models/quiz-attempts/quiz-attempts-model')
 
 const scoreQuiz = (questions) => {
    let numberOfCorrectQuestions = 0
+   //console.log(attempt)
    questions.forEach(question => question.answer === question.correct ?
 numberOfCorrectQuestions++ : numberOfCorrectQuestions)
+    console.log(100 * numberOfCorrectQuestions / questions.length)
    return 100 * numberOfCorrectQuestions / questions.length }
 
 const findAttemptsForQuiz = (qzid) => quizAttemptsModel.find({quiz: qzid}).populate('quiz', 'title _id')
