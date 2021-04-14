@@ -1,5 +1,9 @@
 const mongoose = require('mongoose')
 const questionSchema = require('../questions/questions-schema')
+const quizzesSchema = require('../quizzes/quizzes-schema')
+//const quizzesModel = require('../quizzes/quizzes-schema')
+//mongoose.model('quizzesModel');
+const QuizzesModel = mongoose.model('QuizzesModel', quizzesSchema)
 const quizAttempts = mongoose.Schema({
    //_id: String,
    score: Number,
