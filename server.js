@@ -4,11 +4,9 @@ const app = express()
 
 
 const mongoose = require('mongoose');
-mongoose.connect('mongodb+srv://mmorshed:Srpp42*1@cluster0.pa2sr.mongodb.net/whiteboard?retryWrites=true&w=majority',
-    {useNewUrlParser: true, useUnifiedTopology: true});
 
-//mongoose.connect('mongodb://localhost:27017/whiteboard',
-//    {useNewUrlParser: true, useUnifiedTopology: true});
+mongoose.connect('mongodb://localhost:27017/whiteboard',
+    {useNewUrlParser: true, useUnifiedTopology: true});
 
 const session = require('express-session')
 app.use(session({
