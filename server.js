@@ -1,19 +1,21 @@
 
 const express = require('express')
 const app = express()
-//const bodyParser = require('body-parser')
-//app.use(bodyParser.json())
+
 
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost:27017/whiteboard',
+mongoose.connect('mongodb+srv://mmorshed:Srpp42*1@cluster0.pa2sr.mongodb.net/whiteboard?retryWrites=true&w=majority',
     {useNewUrlParser: true, useUnifiedTopology: true});
+
+//mongoose.connect('mongodb://localhost:27017/whiteboard',
+//    {useNewUrlParser: true, useUnifiedTopology: true});
 
 const session = require('express-session')
 app.use(session({
     secret: 'keyboard cat',
     resave: false,
     saveUninitialized: true,
-    // cookie: { secure: true }
+
 }))
 
 
@@ -30,8 +32,7 @@ app.use(function (req, res, next) {
 const demos = require('./controllers/demo-controller');
 demos(app);
 
-// const quizzesController = require("./controllers/quizzes-controller")
-// quizzesController(app)
+
 
 
 var bodyParser = require('body-parser')
